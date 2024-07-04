@@ -93,3 +93,23 @@ window.addEventListener('hashchange', (): void => {
   mainTarget.style.backgroundColor =
     basicData[hash as keyof BasicData].backgroundColor;
 });
+
+/*
+* 강사님 코드
+const mainTarget = document.getElementById('main-target')!;
+console.log(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash;
+  console.log(hash.slice(1));
+  let test = basicData[hash.slice(1) as keyof BasicData];
+  let div = document.createElement('div');
+  div.style.backgroundColor = test.backgroundColor;
+  div.textContent = test.name;
+  if(mainTarget.hasChildNodes()) {
+    mainTarget.removeChild(mainTarget.childNodes[0]);
+  }
+  mainTarget.appendChild(div);
+
+});
+*/
