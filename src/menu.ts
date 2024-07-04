@@ -1,1 +1,3 @@
-console.log('hellow menu');
+const a = 'test';
+
+console.log(a);
