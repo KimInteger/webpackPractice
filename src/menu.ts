@@ -12,10 +12,34 @@ const liTags = (children: string): string => {
   return result;
 };
 
+const basicData: BasicData = {
+  Menu1: '파인애플피자',
+  Menu2: '고추바사삭순살치킨',
+  Menu3: '빅맥버거',
+  Menu4: '참깨라면',
+};
+
+interface BasicData {
+  Menu1: '파인애플피자';
+  Menu2: '고추바사삭순살치킨';
+  Menu3: '빅맥버거';
+  Menu4: '참깨라면';
+}
+
+const totalElement = (object: BasicData): string => {
+  let result: string = '';
+  // liTags(anchorTags(`${object.Menu1}`, object.Menu1));
+
+  for (let key in object) {
+    let value = object[key as keyof BasicData];
+    result += liTags(anchorTags(key, value));
+  }
+
+  return result;
+};
+
 root.innerHTML = `
 <ul>
-  ${liTags(anchorTags('Menu1', '피자'))}
-  ${liTags(anchorTags('Menu2', '치킨'))}
-  ${liTags(anchorTags('Menu3', '버거'))}
+  ${totalElement(basicData)}
 </ul>
 `;
