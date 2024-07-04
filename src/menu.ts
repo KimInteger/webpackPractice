@@ -2,8 +2,8 @@ const root: HTMLElement = document.getElementById('root') as HTMLDivElement;
 
 console.log(root);
 
-const anchorTags = (): string => {
-  let result: string = `<a href="#">메뉴</a>`;
+const anchorTags = (href: string, text: string): string => {
+  let result: string = `<a href="#${href}">${text}</a>`;
   return result;
 };
 
@@ -14,8 +14,8 @@ const liTags = (children: string): string => {
 
 root.innerHTML = `
 <ul>
-  ${liTags(anchorTags())}
-  ${liTags(anchorTags())}
-  ${liTags(anchorTags())}
+  ${liTags(anchorTags('Menu1', '피자'))}
+  ${liTags(anchorTags('Menu2', '치킨'))}
+  ${liTags(anchorTags('Menu3', '버거'))}
 </ul>
 `;
